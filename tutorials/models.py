@@ -10,6 +10,6 @@ class Tutorial(models.Model):
     published = models.BooleanField(default=False)
     content = models.TextField(max_length=500,blank=False, default='')
     modified_date = models.DateTimeField(auto_now=True)
-    image = models.ImageField(upload_to='images/', default='default.png')
+   
     
 

@@ -12,6 +12,6 @@ class TutorialSerializer(serializers.ModelSerializer):
                   'published',
                   'content',
                   'modified_date',
-                  'image',
-                  'user')
+                  
+                  )
                 
