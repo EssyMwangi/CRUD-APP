@@ -7,8 +7,18 @@ from rest_framework import status
 from tutorials.models import Tutorial
 from tutorials.serializers import TutorialSerializer
 from rest_framework.decorators import api_view
+from rest_framework.views import APIView
+from rest_framework.response import Response
+from rest_framework.permissions import IsAuthenticated
 
 
+class HelloView(APIView):
+    permission_classes = (IsAuthenticated,)
+
+    def get(self, request):
+        content = {'message': 'Hello, World!'}
+        return Response(content)
+        
 @api_view(['GET', 'POST', 'DELETE'])
 def tutorial_list(request):
     if request.method == 'GET':
@@ -66,3 +76,4 @@ def tutorial_list_published(request):
     if request.method == 'GET': 
         tutorials_serializer = TutorialSerializer(tutorials, many=True)
         return JsonResponse(tutorials_serializer.data, safe=False)
+
