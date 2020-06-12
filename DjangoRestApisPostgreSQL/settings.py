@@ -44,6 +44,7 @@ INSTALLED_APPS = [
     'pyuploadcare.dj',
     # Tutorials application 
     'tutorials.apps.TutorialsConfig',
+    'rest_framework.authtoken'
 ]
 
 UPLOADCARE = {
@@ -123,9 +124,9 @@ AUTH_PASSWORD_VALIDATORS = [
 ]
 
 REST_FRAMEWORK = {
-    'DEFAULT_AUTHENTICATION_CLASSES': [
-        'rest_framework_simplejwt.authentication.JWTAuthentication',
-    ],
+    'DEFAULT_AUTHENTICATION_CLASSES': (
+        'rest_framework.authentication.TokenAuthentication',
+    )
 }
 # Internationalization
 # https://docs.djangoproject.com/en/3.0/topics/i18n/
